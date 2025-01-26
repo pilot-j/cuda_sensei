@@ -33,6 +33,7 @@ __global__ void naive_dot_product(int *d_vec1, int *d_vec2, int *c, int n){
     while(cnt != 0){
         if(threadIdx.x < cnt)
          cache_arr[threadIdx.x] += cache_arr[threadIdx.x + cnt];
+        //syncthreads() should be put outside "divergent" branch of code
         __syncthreads();
         cnt /= 2;
     }
