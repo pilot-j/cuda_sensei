@@ -87,6 +87,15 @@ int main(){
     printf("Ans should be: %d \n", ANS);
     printf("Ans is: %d \n", ans);
 
+    //free device memory
+    cudaFree(d_vec1);
+    cudaFree(d_vec2);
+    cudaFree(d_out);
+
+    //free host memory
+    free(h_vec1);
+    free(h_vec2);
+    free(h_out);
    
     return 0;
 }
